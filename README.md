@@ -4,7 +4,7 @@ A comprehensive SRE service for automated root cause analysis of NVIDIA GPU XID 
 
 ## Example Output
 
-![Seneca RCA Example](docs/images/seneca-example.png)
+<img src="docs/images/seneca-example.png" alt="Seneca RCA Example" width="600">
 
 *Real-world example: Seneca automatically analyzed XID 31 error, correlated logs and metrics, and provided detailed root cause analysis with confidence scoring.*
 
