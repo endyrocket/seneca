@@ -1,0 +1,13 @@
+Flask==2.3.*
+prometheus-client==0.17.*
+prometheus-api-client==0.6.*
+kubernetes==26.1.*
+
+# OpenTelemetry
+opentelemetry-sdk==1.31.*
+opentelemetry-exporter-prometheus==0.52b1
+
+openai==1.75.*
+requests==2.*
+werkzeug>=3.0.3
+setuptools>=78.1.1

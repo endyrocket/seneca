@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "seneca.fullname" . }}
+  labels:
+    {{- include "seneca.labels" . | nindent 4 }}
+data:
+  PORT: {{ .Values.config.port | quote }}
+  SKIP_LOG_FETCHING: {{ .Values.config.skipLogFetching | quote }}
+  ENABLE_AUTO_CORDON: {{ .Values.config.enableAutoCordon | quote }}
+  AUTO_CORDON_CONFIDENCE_THRESHOLD: {{ .Values.config.autoCordonConfidenceThreshold | quote }}
+  OPENAI_MODEL: {{ .Values.config.openaiModel | quote }}
+  PROMETHEUS_URL: {{ .Values.config.prometheusUrl | quote }}
+  LOG_FETCH_IMAGE: {{ .Values.config.logFetchImage | quote }}
+  DEBUG_POD_NAMESPACE: {{ .Values.config.debugPodNamespace | quote }}
+  RCA_CACHE_TTL_HOURS: {{ .Values.config.rcaCacheTtlHours | quote }}
+  RCA_CACHE_CLEANUP_INTERVAL_MINUTES: {{ .Values.config.rcaCacheCleanupIntervalMinutes | quote }}
+  MAX_WORKER_THREADS: {{ .Values.config.maxWorkerThreads | quote }}
+  MAX_QUEUE_SIZE: {{ .Values.config.maxQueueSize | quote }}
+  QUEUE_TIMEOUT_SECONDS: {{ .Values.config.queueTimeoutSeconds | quote }} 

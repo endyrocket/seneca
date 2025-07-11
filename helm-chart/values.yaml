@@ -1,0 +1,85 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/endyrocket/seneca
+  pullPolicy: IfNotPresent
+  tag: "1.0"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 5001
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: seneca.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+autoscaling:
+  enabled: false
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# Application configuration
+config:
+  # Webhook listener port
+  port: 5001
+  # Skip log fetching
+  skipLogFetching: false
+  # Auto-cordoning configuration
+  enableAutoCordon: true
+  autoCordonConfidenceThreshold: 80
+  # OpenAI configuration
+  openaiModel: "o3"
+  # Prometheus URL for context queries
+  prometheusUrl: "http://kube-prometheus-stack-prometheus:9090"
+  # Log fetching configuration
+  logFetchImage: "busybox:latest"
+  debugPodNamespace: "default"
+  # RCA cache configuration
+  rcaCacheTtlHours: 24
+  rcaCacheCleanupIntervalMinutes: 60
+  # Queue configuration
+  maxWorkerThreads: 1
+  maxQueueSize: 100
+  queueTimeoutSeconds: 30
+
+# Secrets (to be created separately or via external-secrets)
+secrets:
+  # OpenAI API Key
+  openaiApiKey: ""
+  # Slack webhook URL
+  slackWebhookUrl: "" 

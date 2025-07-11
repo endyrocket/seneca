@@ -1,0 +1,21 @@
+apiVersion: v2
+name: seneca
+description: A Helm chart for Seneca GPU XID Root Cause Analysis Service
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+keywords:
+  - sre
+  - monitoring
+  - gpu
+  - kubernetes
+  - nvidia
+  - xid
+  - gpu root cause analysis
+  - AI
+home: https://github.com/endyrocket/seneca
+maintainers:
+  - name: SRE Team
+    email: stan.pid@gmail.com
+sources:
+  - https://github.com/endyrocket/seneca 

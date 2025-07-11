@@ -1,0 +1,27 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "seneca.fullname" . }}
+  labels:
+    {{- include "seneca.labels" . | nindent 4 }}
+rules:
+# Nodes - read access for GPU status, patch for cordoning
+- apiGroups: [""]
+  resources: ["nodes"]
+  verbs: ["get", "list", "watch", "patch"]
+# Pods - full access for creating debug pods and reading logs
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["create", "get", "list", "watch", "delete"]
+# Pods/exec - for executing commands in log-fetching pods
+- apiGroups: [""]
+  resources: ["pods/exec"]
+  verbs: ["create"]
+# Pods/log - for reading pod logs
+- apiGroups: [""]
+  resources: ["pods/log"]
+  verbs: ["get"]
+# Events - for creating audit events
+- apiGroups: [""]
+  resources: ["events"]
+  verbs: ["create"] 
