@@ -2,6 +2,12 @@
 
 A comprehensive SRE service for automated root cause analysis of NVIDIA GPU XID errors in Kubernetes clusters.
 
+## Example Output
+
+![Seneca RCA Example](docs/images/seneca-example.png)
+
+*Real-world example: Seneca automatically analyzed XID 31 error, correlated logs and metrics, and provided detailed root cause analysis with confidence scoring.*
+
 ## Overview
 
 Seneca is an intelligent monitoring and analysis service that:
